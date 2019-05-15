@@ -145,7 +145,7 @@ table#Footer td{
     background: #fff;
 }
 #BodyTable tbody tr:nth-child(2){
-    background: #fff;
+    background: transparent;
     padding:0;
     margin:0;
 }
@@ -500,6 +500,33 @@ div.CollapsibleTitle,div.CollapsibleHeader {
             $("#TabConfigure").css("border-bottom","2px solid #0dca9f");
         }else if(href.indexOf("Preferences")>=0){
             $("#TabPreferences").css("border-bottom","2px solid #0dca9f");
+
+            $("#Edit_Contents p").each(function(i,n){
+                if($(n).html()!=""){
+                  $(n).addClass("form-control");
+                }
+            });
+            var cp =$("#Edit_chkIsArticleOnHome").parent();
+            $(cp).addClass("form-control").css("padding",0);
+            $(cp).find("label").eq(0).css("padding-left","10px");
+
+            var dis = $("#Edit_chkDisableSubscibeNotify").parent();
+            $(dis).css("margin-top","15px");
+
+            var cm = $("#Edit_EnableComments").parent();
+            $(cm).css("margin-top","8px");
+
+            $("#Edit_rblEditor tr td").addClass("form-control").css("margin-top","5px").css("margin-bottom","10px");
+
+            $("#Edit_Contents fieldset").css("width","100%");
+            $("#Edit_cklSkinControl").addClass("table table-striped table-condensed table-hover").css("margin-top","5px");
+            $("#Edit_cklSkinControl tr td").css("width","3%")
+            $("#Edit_cklSkinControl tr td:nth-child(5)").css("width","7%");
+            $("#Edit_cklSkinControl tr td:nth-child(6)").css("width","7%");
+             $("#Edit_cklSkinControl tr td label").css("font-size","14px");
+
+            $("#Edit_lkbUpdate").val("保存").removeClass("Button").addClass("btn btn-primary");
+            $("#Edit_lkbCancel").val("取消").removeClass("Button").addClass("btn btn-danger").css("margin-left","10px");;
         }else{
             $("#TabPosts").css("border-bottom","2px solid #0dca9f");
         }
