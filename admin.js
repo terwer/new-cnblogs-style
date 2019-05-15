@@ -37,7 +37,7 @@ var config = {
     var cnblogsAdminCss = `
 body{
     margin: 0;
-    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
     font-size: 12px;
     line-height: 1.5;
     padding: 0;
