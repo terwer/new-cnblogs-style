@@ -5,6 +5,7 @@
 // @description  博客园界面美化
 // @author       Terwer
 // @match        *://www.cnblogs.com/
+// @match        *://www.cnblogs.com/sitehome*
 // @match        *://www.cnblogs.com/pick*
 // @match        *://www.cnblogs.com/candidate*
 // @match        *://www.cnblogs.com/news*
@@ -17,6 +18,19 @@
 // ==/UserScript==
 
 console.log("New style of cnblogs desgined by Terwer!");
+
+// bootstrap4
+addLinkCss('https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css');
+console.log("add bootstrap4");
+
+function addLinkCss(url){
+    var link = window.document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = url;
+    document.getElementsByTagName("HEAD")[0].appendChild(link);
+}
+
 
 var cnblogsCss = `
 body{
@@ -510,6 +524,31 @@ cnblogsCss+=`
         /*二级菜单右侧图片div设置*/
 `;
 
+cnblogsCss += `
+#paging_block{
+   margin: 0 6px;
+}
+#paging_block a:link, a:visited, a: {
+    color: #555 !important;
+    background-color: transparent !important;
+    text-decoration: none;
+}
+#paging_block a:hover,.active {
+     color:#e9ecef !important;
+     background-color: #00B38A !important;
+}
+#paging_block .active {
+     color:#e9ecef !important;
+     background-color: #00B38A !important;
+}
+.search_input{
+    height:47px;
+}
+p{
+margin:0;
+}
+`;
+
 
 //与元数据块中的@grant值相对应，功能是生成一个style样式
 GM_addStyle(cnblogsCss);
@@ -522,6 +561,8 @@ makeNavMenu();
 makeSearch();
 // 生成左侧菜单
 makeLeftMenu();
+// 生成分页
+makePager();
 
 // function
 function removeAd() {
@@ -651,7 +692,7 @@ function makeLeftMenu() {
     $("#pager_bottom").after(leftMenu);
 
     // 等菜单加载完成后加载子菜单
-    var loadCnblogsSubCategories = function() {
+    var loadCnblogsSubCategories = function () {
     // var subblock = $("#cate_sub_block");
     $.ajax({
         type: "post",
@@ -668,7 +709,7 @@ function makeLeftMenu() {
           // 子菜单
           firstCatIdArray.forEach(function(e) {
               var fid = e;
-              console.log("show sub " + fid);
+              // console.log("show sub " + fid);
               var sub = $(wrapper).find("#cate_content_block_"+fid);
               var secondCnblogsMenu = $(sub).find('.cate_content_block ul li');
 
@@ -693,7 +734,7 @@ function makeLeftMenu() {
                                </li>
                   </ul>`;
                   $("#li_toggle_"+fid).append(subItem);
-                  console.log("subItem=>", subItem);
+                  // console.log("subItem=>", subItem);
               }
           });
 
@@ -702,5 +743,41 @@ function makeLeftMenu() {
         }
      });
    };
+   // 加载子菜单
    loadCnblogsSubCategories();
+}
+
+// 分页
+function makePager(){
+    var pager = $("#paging_block .pager");
+    console.log("pager=>", pager);
+
+    var newas = "";
+    pager.children().each(function(i,n){
+     console.log("href",$(n).attr("href"));
+     console.log("class",$(n).attr("class"));
+     console.log("txt",$(n).html());
+     var cls = $(n).attr("class");
+     var txt = $(n).html();
+     var hrf = $(n).attr("href");
+
+     if(cls=='ellipsis'){
+        hrf="javascript:void(0);";
+     }else if(typeof(cls) != "undefined" && cls.indexOf('current')>=0){
+        cls = "active";
+     }else{
+        cls ="";
+     }
+     txt=txt.replace("Prev","上一页");
+     txt=txt.replace("Next","下一页");
+
+     var newa = "<li class='page-item'><a class='page-link "+cls+"' href='"+hrf+"'>"+txt+"</a></li>";
+     newas += newa;
+    });
+
+    var pagerHtml = "<nav><ul class='pagination'>";
+    pagerHtml += newas;
+    pagerHtml += "</ul></nav>";
+    console.log("pagerHtml=>",pagerHtml);
+    $("#paging_block").html(pagerHtml);
 }
