@@ -409,6 +409,28 @@ td.NavLeftCell{
     padding: 10px;
     font-size: 16px;
 }
+
+#Editor_Results_Contents table{
+    border: none;
+}
+#Editor_Results_Contents table td {
+    padding: 10px;
+    font-size: 16px;
+}
+#Editor_Results_Contents table td a{
+    padding: 10px;
+    font-size: 16px;
+}
+#Editor_Results_Contents table th{
+    border: 1px solid #dee2e6 !important;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+#Editor_Results_Contents table th:nth-child(1) {
+    width: 60%;
+}
 `;
 
     // 添加新随笔
@@ -491,6 +513,8 @@ div.CollapsibleTitle,div.CollapsibleHeader {
         $("#AddFiles_lbkAddFile").removeClass("Button").addClass("btn btn-primary");
 
         $("#Results_Contents table").addClass("table table-bordered table-striped table-condensed table-hover").css("margin-top","10px");
+
+        $("#Editor_Results_Contents table").addClass("table table-bordered table-striped table-condensed table-hover").css("margin-top","10px");
     }
 
 })();
