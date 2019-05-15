@@ -434,6 +434,12 @@ td.NavLeftCell{
 div#Main div.Edit p.Label, label{
     font-size: 14px;
 }
+#Edit_ddlSkin{
+    font-size: 16px;
+}
+#Edit_Contents{
+    font-size: 16px;
+}
 `;
 
     // 添加新随笔
@@ -501,6 +507,18 @@ div.CollapsibleTitle,div.CollapsibleHeader {
 
         }else if(href.indexOf("Configure")>=0){
             $("#TabConfigure").css("border-bottom","2px solid #0dca9f");
+
+            $("#Edit_Contents .Block").addClass("form-control");
+            $("#Edit_Contents input,select,textarea").addClass("form-control");
+            $("#Edit_ckbAllowServiceAccess").removeClass("form-control").parent().addClass("form-control");
+            $("#Edit_lkbPost").val("保存").removeClass("form-control").removeClass("Button").addClass("btn btn-primary");
+
+            $("#Edit_Contents textarea").css("width","100%").css("height","320px");
+            $("#Edit_txbTitle").css("width","100%").css("border","1px solid #ced4da");
+            $("#Edit_Contents label").css("border","none").css("background","#F2F5F4").css("font-size","18px");
+
+            $("#Edit_ckbAllowServiceAccess").parent().css("padding-bottom","50px");
+            $("#Edit_EditorBody").parent().css("width","100%");
         }else if(href.indexOf("Preferences")>=0){
             $("#TabPreferences").css("border-bottom","2px solid #0dca9f");
 
