@@ -431,6 +431,9 @@ td.NavLeftCell{
 #Editor_Results_Contents table th:nth-child(1) {
     width: 60%;
 }
+div#Main div.Edit p.Label, label{
+    font-size: 14px;
+}
 `;
 
     // 添加新随笔
