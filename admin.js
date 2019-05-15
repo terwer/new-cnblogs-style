@@ -480,10 +480,30 @@ div.CollapsibleTitle,div.CollapsibleHeader {
         $("#SubNav").remove();
 
         var href=window.location.href;
-        if(href.indexOf("EditArticles")>=0){
+
+        if(href.indexOf("EditPosts")>=0){
+            $("#TabPosts").css("border-bottom","2px solid #0dca9f");
+
+            $("#edit_container").css("font-size","18px");
+            $("#edit_container b").css("font-size","18px");
+            $("#edit_container div").css("font-size","18px");
+            $("#edit_container label").css("font-size","18px");
+
+            $("#edit_container input[type='text']").addClass("form-control").css("width","100%").css("border","1px solid #ced4da");
+            $("#edit_container textarea").addClass("form-control").css("width","100%");
+
+            $("#edit_container .Button").removeClass("Button").removeClass("Button").addClass("btn");
+            $("#Editor_Edit_lkbPost").addClass("btn-primary");
+            $("#Editor_Edit_lkbDraft").addClass("btn-default").css("border","1px solid #ced4da");
+            $("#Editor_Edit_lkbCancel").addClass("btn-danger");
+
+        }else if(href.indexOf("EditArticles")>=0){
             $("#TabArticles").css("border-bottom","2px solid #0dca9f");
         }else if(href.indexOf("EditDiary")>=0){
             $("#TabDiary").css("border-bottom","2px solid #0dca9f");
+            $("#Editor_Results_Contents #Editor_Results_NoMessagesLabel").addClass("form-control").css("width","99%").css("margin-top","10px");
+            // 移除分页
+            $("#Editor_Results_Contents .Pager").empty();
         }else if(href.indexOf("Feedback")>=0){
             $("#TabFeedback").css("border-bottom","2px solid #0dca9f");
             $("#Results_headerTitle").html("评论");
@@ -491,6 +511,14 @@ div.CollapsibleTitle,div.CollapsibleHeader {
             $("#TabLinks").css("border-bottom","2px solid #0dca9f");
         }else if(href.indexOf("EditGalleries")>=0){
             $("#TabGalleries").css("border-bottom","2px solid #0dca9f");
+
+            $("#Results_Add_Contents .Block").css("font-size","18px");
+            $("#Results_Add_txbNewTitle").addClass("form-control").css("width","100%").css("border","1px solid #ced4da");
+            $("#Results_Add_txbNewDescription").addClass("form-control").css("width","100%");
+            $("#Results_Add_lkbPost").val("保存").removeClass("form-control").removeClass("Button").addClass("btn btn-primary");
+
+            var filteredHtml = $("#Results_Add_txbNewTitle").parent().html().replace("Visible","可见").replace("1000 characters including HTML","最多包含html在内的1000个字符");
+            $("#Results_Add_txbNewTitle").parent().html(filteredHtml);
         }else if(href.indexOf("Files")>=0){
             $("#TabFiles").css("border-bottom","2px solid #0dca9f");
 
