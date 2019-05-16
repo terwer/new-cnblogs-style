@@ -13,7 +13,7 @@
 
 # 使用方法
 
-Chrome 或者 Firefox 先安装 Tampermonkey
+Chrome 或者 Firefox 先安装 [Tampermonkey](https://addons.mozilla.org/zh-CN/firefox/addon/tampermonkey/?src=search)
 
 # 前台
 front.js
