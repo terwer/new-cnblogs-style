@@ -225,6 +225,9 @@ ul, ol {
     font-size: 10px;
     color: #fff;
 }
+#ing_home_search{
+    display: none;
+}
 `;
 
     cnblogsIngCss += `
@@ -232,6 +235,16 @@ ul, ol {
     height: 100%;
     margin: 10px 400px 0 400px;
     position: relative;
+}
+
+#app_list_wrapper{
+}
+.app_r_1,app_r_2,app_r_3{
+    display: none;
+}
+
+.avatar_block_wrapper {
+    height: 85px;
 }
 `;
 
@@ -253,7 +266,10 @@ ul, ol {
     </div>
     <div class="search-container">
         <div class="search-icon"></div>
-        <input id="searchInput" placeholder="搜索闪存、标签、用户" type="text" class="ng-pristine ng-valid ng-touched">
+        <form method="get" id="ing_top_search" autocomplete="false" action="https://zzk.cnblogs.com/s/ing">
+            <input id="searchInput" name="keywords" placeholder="搜索闪存" type="text" class="ng-pristine ng-valid ng-touched">
+        </form>
+
     </div>
     <div class="user-container">
         <img class="avatar" src="https://images.zsxq.com/FjyKWxEmQLmReH4FlovVXBaTFcae?e=1906272000&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:00v7HL5z7VZSOejkM0ZVxRBnUJE=">
@@ -266,5 +282,7 @@ ul, ol {
       $("#top").html(topHtml);
 
       $("#wrapper #header").remove();
+
+      $("#txt_ing").addClass("form-control");
     }
 })();
