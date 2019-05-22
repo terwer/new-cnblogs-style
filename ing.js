@@ -81,16 +81,25 @@ ul, ol {
     width: 20%;
 }
 #container_content{
-    width: 78%;
+    width: 80%;
     float: right;
-    margin: 0 1%;
+    margin: 0;
+}
+#main{
+    margin-left: 20px;
 }
 #right_sidebar{
-    width:200px;
+    width: 275ox;
 }
 `;
 
     cnblogsIngCss +=`
+#top{
+    height: 60px;
+    position: inherit;
+    border: none;
+}
+
 .header-container{
     z-index: 3;
     position: fixed;
@@ -215,6 +224,14 @@ ul, ol {
     align-items: center;
     font-size: 10px;
     color: #fff;
+}
+`;
+
+    cnblogsIngCss += `
+#container {
+    height: 100%;
+    margin: 10px 400px 0 400px;
+    position: relative;
 }
 `;
 
