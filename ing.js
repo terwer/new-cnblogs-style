@@ -56,6 +56,23 @@ button, input, optgroup, select, textarea {
     font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
 }
 
+.long_input{
+    display: block;
+    width: 99% !important;
+    height: calc(1.5em + .75rem + 2px) !important;
+    padding: 0.375rem .75rem;
+    font-size: 1rem !important;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 5px;
+}
+
 a:link, a:visited, a:active {
     color: #555 !important;
     background-color: transparent !important;
@@ -228,6 +245,29 @@ ul, ol {
 #ing_home_search{
     display: none;
 }
+
+.submit_btn_self {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0 .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 `;
 
     cnblogsIngCss += `
@@ -284,5 +324,7 @@ ul, ol {
       $("#wrapper #header").remove();
 
       $("#txt_ing").addClass("form-control");
+      $('input[type="text"]').addClass("form-control");
+      $("#comment_btn").removeClass("submit_btn_self").addClass("btn btn-primary");
     }
 })();
