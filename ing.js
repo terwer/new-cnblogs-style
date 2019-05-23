@@ -286,6 +286,35 @@ ul, ol {
 .avatar_block_wrapper {
     height: 85px;
 }
+
+.topic_nav_block a.current_nav:link, .topic_nav_block a.current_nav:visited, .topic_nav_block a.current_nav:active{
+    border: none;
+    border-bottom: 2px solid #0dca9f;
+}
+
+.topic_nav_block a:link, .topic_nav_block a:visited, .topic_nav_block a:active{
+    border: none;
+}
+
+.topic_nav_block_wrapper{
+   padding: 4px 0;
+}
+
+.pager{
+    font-size: 14px;
+}
+.pager span.current{
+    background:#0dca9f;
+    border: 1px solid #0dca9f;
+}
+.pager a{
+    border: 1px solid #dee2e6;
+    color: #555 !important;
+}
+.pager a:hover{
+    color: #fff !important;
+    background: #0dca9f !important;
+}
 `;
 
     //与元数据块中的@grant值相对应，功能是生成一个style样式
