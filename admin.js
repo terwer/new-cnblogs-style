@@ -347,8 +347,9 @@ ul#TopNav li{
 }
 
 #main_wrap{
-    width: 90%;
-    margin: 0;
+    position:absolute;
+    margin-left:190px;
+    max-width:1150px;
 }
 #main_container{
     margin: 0;
